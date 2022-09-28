@@ -1,0 +1,275 @@
+@font-face {
+  font-family: 'GraphikRegular';
+    src:url('/fonts/GraphikRegular.woff') format('woff'),
+    url('/fonts/GraphikRegular.otf') format('opentype'),
+    url('/fonts/GraphikRegular.ttf') format('truetype');
+  }
+
+*{ 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: Graphik;
+} 
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+body {
+  /* padding: 50px; */
+  font-family: Graphik;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.menu-container{
+  display:flex;
+  flex-flow:row;
+}
+.top-container{
+  display:flex;
+  flex-flow:row;
+  flex-wrap: wrap;
+  /* height: max-content; */
+}
+
+.top-item{
+  flex:50%;
+  flex-basis:50%;
+  width:50%;
+}
+.top-item img{
+  width: 100%;
+} 
+
+
+
+.top-item:nth-of-type(2){
+  flex-flow:column;
+  justify-content: center;
+  align-items: initial;
+  background-color: #C4C4C4;
+  line-height: 1em;
+}
+
+
+/* P1_イントロ */
+.p1-container{
+  display: flex;
+  flex-flow:column;
+  height: max-content;
+}
+.p1-item1 img{
+  width: 100vw;
+  /* height: 100vh; */
+}
+
+.p1-item2{
+  position: absolute;
+  top:50vh;
+  animation: SlideIn 3s;
+} 
+.p1-item2 img{
+  width: 100vw;
+  /* height: 50vh; */
+} 
+@keyframes SlideIn {
+ 0% {
+  opacity: 0;
+  transform: translateY(200vh);
+ }
+ 100% {
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+
+
+/* P2_事例 */
+
+.p2-container{
+  background-color: #999999;
+  display: flex;
+  flex-flow:column;
+  height: max-content;
+}
+.p2-item img{
+  width: 100vw;
+}
+.p2-item video{
+  width:100vw;
+  vertical-align: top;
+}
+
+
+/* P4_チーム */
+.p4-container{
+  background-color: #999999;
+  display: flex;
+  flex-flow:column;
+  height: max-content;
+}
+.p4-item1{
+  animation: LeftToRight 30s;
+  animation-delay:2s;
+  animation-timing-function:ease-in;
+  animation-iteration-count:1;
+}
+
+@keyframes LeftToRight {
+  0% {
+   transform: translate(0vw,0);
+  }
+  50% {
+    transform: translate(-245vw,0);
+  }
+  100% {
+    transform: translate(0,0);
+  }
+ }
+
+.p4-item1 img{
+  height: 37vh;
+}
+.p4-item2{
+  position:absolute;
+  top:4vh;
+  left:5vw;
+}
+.p4-item2 img{
+  height:4vh;
+}
+.p4-item3 img{
+  height: 63vh;
+}
+
+.IMJp4-container{
+  background-color: #999999;
+  display: flex;
+  flex-flow:column;
+  height: max-content;
+}
+.IMJp4-item1 img{
+  height: 100vh;
+}
+
+
+/* test */
+.test-container{
+  display:flex;
+  flex-flow:column;
+  height: max-content;
+}
+/* #draw-text{
+  position: absolute;
+  margin:auto;
+  top:0;
+  left:0;
+  right: 0;
+  text-align: center; 
+  color:white;
+  background-color: #000000;
+} */
+#draw-area{
+  height:100vh;
+  border:1px solid #000000
+}
+.test-head-container{
+  display:flex;
+  flex-flow:column;
+  position: absolute;
+  top:1vh;
+  left:1vw;
+}
+.test-subhead-container1{
+  display:flex;
+  flex-flow:row;
+  /* position: absolute;
+  top:2vh;
+  left:2vw; */
+  height:14vh;
+  width:100vw;
+  background-color: #101810;
+}
+.test-logo{
+  padding-left:2vw;
+  width:23vw;
+}
+.test-logo img{
+  width:21vw;
+  height:12vh;
+}
+
+.test-title{
+  padding-left:2vw;
+  height:13vh;
+}
+
+#test-titleline1::after{
+  content:"\a";
+  white-space:pre;
+}
+#test-titleline1{
+  font-family: 'GraphikRegular';
+  color:#FFFFFF;
+  font-weight: 1000;
+  font-size:5.5em;
+  letter-spacing: 0.3em;
+}
+#test-titleline2{
+  font-family: 'GraphikRegular';
+  color:#FFFFFF;
+  font-weight: 1000;
+  font-size:5.5em;
+  letter-spacing: 0.3em;
+}
+
+
+.test-subhead-container2{
+  margin-top:0.3vh;
+  margin-left:2.5vw;
+  height:4vh;
+}
+.test-subhead-container2 p{
+  font-weight: 400;
+  color:#FFFFFF;
+  font-size:1.2em;
+  letter-spacing: 0.1em;
+}
+
+.test-subhead-container3{
+  height:40vh;
+}
+.test-box{
+  border:3px solid #FFFFFF;
+  border-radius: 25px;
+  margin:auto;
+  height:38vh;
+  width:90vw;
+}
+.test-box p{
+  margin-top:1vh;
+  color:#FFFFFF;
+  text-align: center;
+  font-size:2.5em;
+  letter-spacing: 0.6em;
+}
+/* #clear-button{
+  position: absolute;
+  margin:auto;
+  top:50vh;
+  left:42vw;
+  text-align: center;
+  color: white;
+  background-color: #ed145b;
+  border-radius: 100vh;
+  border:none;
+  padding:0 1em;
+} 
+
+#clear-button:hover{
+  background-color: #f36594;
+}  */
