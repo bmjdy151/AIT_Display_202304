@@ -20,6 +20,9 @@ var m1 = document.getElementsByClassName('MVTop');
 var m2 = document.getElementsByClassName('MVCase01');
 var m3 = document.getElementsByClassName('MVCase02');
 var m4 = document.getElementsByClassName('MVMember');
+var l1 = document.getElementsByClassName('Library01');
+var l2 = document.getElementsByClassName('Library02');
+var l3 = document.getElementsByClassName('Library03');
 var sduration = 30;
 var IntroDuration = 20;
 var F_Case1_Duration = 45;
@@ -32,6 +35,7 @@ var D_Case1_Duration = 120;
 var M_Case1_Duration = 26;
 var M_Case2_Duration = 53;
 var MemberDuration = 30;
+var LibraryDuration = 60;
 var counter = 0;
 var orgs = ['fjord','IMJ','GBD','D5','MV'];
 // var pastOrgs = [];
@@ -57,26 +61,33 @@ function shuffleContent(container) {
 document.addEventListener('keydown',e =>{
   console.log(e);
   if(e.code === 'ArrowDown'){
-    var url = location.href
-    var head_url = location.href.substring(22,url.length -2);
-    var num_url = url.slice(-1);
-    var num_int = parseInt(num_url);
-    if(num_int < 4){
-      var next_page = num_int += 1;
-      console.log(next_page); 
-      window.location.href = head_url+'_'+next_page.toString();
-    }else if(num_int == 4){
-      var next_page = 1;
-      var cloneOrgs = arrRemove(orgs,head_url);
-      var org = cloneOrgs[Math.floor(Math.random()*cloneOrgs.length)];
-      window.location.href = org+'_'+next_page.toString();
-    }
+    window.location.href = '/Library_1';
+    // var url = location.href
+    // var head_url = location.href.substring(22,url.length -2);
+    // var num_url = url.slice(-1);
+    // var num_int = parseInt(num_url);
+    // if(num_int < 4){
+    //   var next_page = num_int += 1;
+    //   console.log(next_page); 
+    //   window.location.href = head_url+'_'+next_page.toString();
+    // }else if(num_int == 4){
+    //   var next_page = 1;
+    //   var cloneOrgs = arrRemove(orgs,head_url);
+    //   var org = cloneOrgs[Math.floor(Math.random()*cloneOrgs.length)];
+    //   window.location.href = org+'_'+next_page.toString();
+    // }
+  }
+  if(e.code === 'ArrowUp'){
+    var next_page = 2;
+    var org = orgs[Math.floor(Math.random()*orgs.length)];
+    window.location.href = org+'_'+next_page.toString();
+    // window.location.href = '/fjord_2';
   }
   if(e.code === 'ArrowRight'){
     window.location.href = '/test';
   }
   if(e.code === 'ArrowLeft'){
-    var next_page = 1;
+    var next_page = 2;
     var org = orgs[Math.floor(Math.random()*orgs.length)];
     window.location.href = org+'_'+next_page.toString();
   }
@@ -207,7 +218,8 @@ if(m2.length) {
 if(m3.length) {
   setTimeout(function () {
       // window.location.href = '/MV_4';
-      window.location.href = '/fjord_2';
+      // window.location.href = '/fjord_2';
+      window.location.href = '/Library_1';
   }, M_Case2_Duration*1000)
 };
 
@@ -215,6 +227,22 @@ if(m4.length) {
   setTimeout(function () {
       window.location.href = '/';
   }, IntroDuration*1000)
+};
+
+if(l1.length) {
+  setTimeout(function () {
+      window.location.href = '/Library_2';
+  }, LibraryDuration*1000)
+};
+if(l2.length) {
+  setTimeout(function () {
+      window.location.href = '/Library_3';
+  }, LibraryDuration*1000)
+};
+if(l3.length) {
+  setTimeout(function () {
+      window.location.href = '/fjord_2';
+  }, LibraryDuration*1000)
 };
 
 
