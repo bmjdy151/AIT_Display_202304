@@ -32,6 +32,7 @@ var Library_1Router = require('./routes/Library_1');
 var Library_2Router = require('./routes/Library_2');
 var Library_3Router = require('./routes/Library_3');
 var testRouter = require('./routes/test');
+var voteRouter = require('./routes/vote');
 // var test_mapRouter = require('./routes/test_map');
 
 var app = express();
@@ -74,6 +75,7 @@ app.use('/Library_1', Library_1Router);
 app.use('/Library_2', Library_2Router);
 app.use('/Library_3', Library_3Router);
 app.use('/test', testRouter);
+app.use('/vote', voteRouter);
 // app.use('/test_map', test_mapRouter);
 app.use(express.static(path.join(__dirname, "node_modules/bootstrap/dist/")));
 // app.use('/css', express.static(path.join(_dirname, 'node_modules/bootstrap/dist/css')))

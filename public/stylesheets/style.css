@@ -25,6 +25,8 @@ a {
   color: #00B7FF;
 }
 
+
+
 .menu-container{
   display:flex;
   flex-flow:row;
@@ -273,3 +275,78 @@ a {
 #clear-button:hover{
   background-color: #f36594;
 }  */
+
+
+.vote-container{
+  display: flex;
+  flex-flow:column;
+  /* height: max-content; */
+}
+.vote-item1 img{
+  height: 100vh;
+}
+.vote-item2 img{
+  height: 100vh;
+  position:absolute;
+  top:50%;
+}
+
+.vote-dog img{
+  height: 55%;
+  position:absolute;
+  right:0%;
+  top:2%;
+}
+
+.vote-cat img{
+  height: 55%;
+  position:absolute;
+  top:43%;
+}
+
+.circle {
+  position: absolute;
+  top:40vh;
+  left:45vw;
+  background-color:black;
+  color:white;
+  height:20vh;
+  width:15vw;
+  border-radius:50%;
+  text-align:center;
+ }
+ .circle1{
+  margin-top:3vh;
+  font-size:30px;
+ }
+ .circle2{
+  font-size:50px;
+ }
+ .circle3{
+  font-size:25px;
+  line-height:1vh;
+ }
+
+ .dog-title{
+  position: absolute;
+  top:20vh;
+  left:10vw;
+  color:white;
+  text-align:center;
+  line-height:4vh;
+ }
+ .cat-title{
+  position: absolute;
+  top:75vh;
+  left:65vw;
+  color:white;
+  text-align:center;
+  line-height:3vh;
+ }
+ .dtitle1{
+  font-size:80px;
+  font-weight: bold;
+ }
+ .dtitle2{
+  font-size:30px;
+ }
