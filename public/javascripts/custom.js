@@ -23,6 +23,13 @@ var m4 = document.getElementsByClassName('MVMember');
 var l1 = document.getElementsByClassName('Library01');
 var l2 = document.getElementsByClassName('Library02');
 var l3 = document.getElementsByClassName('Library03');
+var l4 = document.getElementsByClassName('Library04');
+var l5 = document.getElementsByClassName('Library05');
+var l6 = document.getElementsByClassName('Library06');
+var l7 = document.getElementsByClassName('Library07');
+var vt = document.getElementsByClassName('vote_top');
+var vr = document.getElementsByClassName('vote_result');
+var we = document.getElementsByClassName('welcome');
 var sduration = 30;
 var IntroDuration = 20;
 var F_Case1_Duration = 45;
@@ -36,9 +43,15 @@ var M_Case1_Duration = 26;
 var M_Case2_Duration = 53;
 var MemberDuration = 30;
 var LibraryDuration = 60;
+var VoteDuration = 60;
+var VoteResultDuration = 10;
 var counter = 0;
 var orgs = ['fjord','IMJ','GBD','D5','MV'];
+var supportedFlag = $.keyframe.isSupported();
+import {votelistFunc} from './votelist.js';
+import {post} from './votelist.js';
 // var pastOrgs = [];
+
 
 function arrRemove(arr,value){
   return arr.filter(function(ele){
@@ -60,7 +73,7 @@ function shuffleContent(container) {
     
 document.addEventListener('keydown',e =>{
   console.log(e);
-  if(e.code === 'ArrowDown'){
+  if(e.code === 'KeyL'){
     window.location.href = '/Library_1';
     // var url = location.href
     // var head_url = location.href.substring(22,url.length -2);
@@ -77,11 +90,14 @@ document.addEventListener('keydown',e =>{
     //   window.location.href = org+'_'+next_page.toString();
     // }
   }
+  if(e.code === 'KeyV'){
+    window.location.href = '/vote';
+  }
   if(e.code === 'ArrowUp'){
-    var next_page = 2;
-    var org = orgs[Math.floor(Math.random()*orgs.length)];
-    window.location.href = org+'_'+next_page.toString();
-    // window.location.href = '/fjord_2';
+    post('/vote', {animal: 'dog'});
+  }
+  if(e.code === 'ArrowDown'){
+    post('/vote', {animal: 'cat'});
   }
   if(e.code === 'ArrowRight'){
     window.location.href = '/test';
@@ -92,6 +108,8 @@ document.addEventListener('keydown',e =>{
     window.location.href = org+'_'+next_page.toString();
   }
 });
+
+
 
 
 if(t0.length) {
@@ -106,6 +124,13 @@ if(f1.length) {
         console.log('boo1')
         window.location.href = '/fjord_2';
     }, IntroDuration*1000)
+};
+
+if(we.length) {
+  setTimeout(function () {
+      console.log('welcome')
+      window.location.href = '/fjord_2';
+  }, LibraryDuration*1000)
 };
 
 if(f2.length) {
@@ -241,9 +266,118 @@ if(l2.length) {
 };
 if(l3.length) {
   setTimeout(function () {
-      window.location.href = '/fjord_2';
+      // window.location.href = '/vote';
+      window.location.href = '/Library_4';
   }, LibraryDuration*1000)
 };
+if(l4.length) {
+  setTimeout(function () {
+      window.location.href = '/Library_5';
+  }, LibraryDuration*1000)
+};
+if(l5.length) {
+  setTimeout(function () {
+      window.location.href = '/Library_6';
+  }, LibraryDuration*1000)
+};
+if(l6.length) {
+  setTimeout(function () {
+      window.location.href = '/Library_7';
+  }, LibraryDuration*1000)
+};
+if(l7.length) {
+  setTimeout(function () {
+      window.location.href = '/vote';
+  }, LibraryDuration*1000)
+};
+if(vt.length) {
+  console.log("hogege");
+  setTimeout(function () {
+      window.location.href = '/welcome';
+  }, VoteDuration*1000)
+};
+if(vr.length) {
+  console.log("hoge");
+  setTimeout(function () {
+      window.location.href = '/vote';
+  }, VoteResultDuration*1000)
+};
+
+function scaleAnimal(){
+  var dog_content = document.getElementById("dog_p").textContent;
+  var dog_txt = dog_content.substring(0,dog_content.length -1);
+  var dog_num = parseInt(dog_txt,10);
+  var cat_content = document.getElementById("cat_p").textContent;
+  var cat_txt = cat_content.substring(0,cat_content.length -1);
+  var cat_num = parseInt(cat_txt,10);
+  
+
+  //dog size
+  var dog_num_base = 50;
+  var dog_height = 55 + ((dog_num - dog_num_base)/2);
+  var dog_height_txt = dog_height.toString()+"%";
+  console.log("dog_num is "+dog_num);
+  console.log("dog_height is "+dog_height);
+  // document.getElementById("vr-dog").style.animation = "3s linear 1s slidein";
+  $.keyframe.define([{
+    name: 'dogHeight-sequence',
+    '0%': {'height': '55%'},
+    '80%': {'transform': 'translate(0px, 0px)'},
+    '82%': {'transform': 'translate(2px, 2px)'},
+    '84%': {'transform': 'translate(0px, 2px)'},
+    '86%': {'transform': 'translate(2px, 0px)'},
+    '88%': {'transform': 'translate(0px, 0px)'},
+    '90%': {'transform': 'translate(2px, 2px)'},
+    '92%': {'transform': 'translate(0px, 0px)'},
+    '94%': {'transform': 'translate(2px, 0px)'},
+    '96%': {'transform': 'translate(0px, 2px)'},
+    '98%': {'transform': 'translate(0px, 0px)'},
+    '100%': {'height': dog_height_txt}
+  }]);
+  document.getElementById("vr-dog").style.height =dog_height_txt;
+
+  //cat size & position
+  var cat_num_base = 50;
+  var cat_height = 55 + ((cat_num - cat_num_base)/2);
+  var cat_height_txt = cat_height.toString()+"%";
+  console.log("cat_num is "+cat_num);
+  console.log("cat_height is "+cat_height);
+  console.log("cat_height_txt is "+cat_height_txt);
+  var cat_top = 43 - ((cat_num - cat_num_base)/2);
+  var cat_top_txt = cat_top.toString()+"%";
+  console.log("cat_top is "+cat_top);
+  $.keyframe.define([{
+    name: 'catHeight-sequence',
+    '0%': {'height': '55%','top': '43%'},
+    '80%': {'transform': 'translate(0px, 0px) rotateZ(0deg)'},
+    '82%': {'transform': 'translate(2px, 2px) rotateZ(2deg)'},
+    '84%': {'transform': 'translate(0px, 2px) rotateZ(0deg)'},
+    '86%': {'transform': 'translate(2px, 0px) rotateZ(-2deg)'},
+    '88%': {'transform': 'translate(0px, 0px) rotateZ(0deg)'},
+    '90%': {'transform': 'translate(2px, 2px) rotateZ(2deg)'},
+    '92%': {'transform': 'translate(0px, 0px) rotateZ(0deg)'},
+    '94%': {'transform': 'translate(2px, 0px) rotateZ(-2deg)'},
+    '96%': {'transform': 'translate(0px, 2px) rotateZ(0deg)'},
+    '98%': {'transform': 'translate(0px, 0px) rotateZ(0deg)'},
+    '100%': {'height': cat_height_txt,'top': cat_top_txt}
+  }]);
+  document.getElementById("vr-cat").style.height =cat_height_txt;
+  document.getElementById("vr-cat").style.top =cat_top_txt;
+
+
+  //cat background
+  var cat_bg_top = 50 - (cat_num - cat_num_base);
+  var cat_bg_top_txt = cat_bg_top.toString()+"%";
+  console.log("cat_bg_top is "+cat_bg_top);
+  document.getElementById("cat-bg").style.top =cat_bg_top_txt;
+  $.keyframe.define([{
+    name: 'catBackground-sequence',
+    '0%': {'top': '50%'},
+    '100%': {'top': cat_bg_top_txt}
+  }]);
+  document.getElementById("cat-bg").style.top =cat_bg_top_txt;
+}
+scaleAnimal();
 
 
 

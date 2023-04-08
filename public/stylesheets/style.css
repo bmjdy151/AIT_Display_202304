@@ -294,7 +294,7 @@ a {
 .vote-dog img{
   height: 55%;
   position:absolute;
-  right:0%;
+  right:2%;
   top:2%;
 }
 
@@ -307,11 +307,11 @@ a {
 .circle {
   position: absolute;
   top:40vh;
-  left:45vw;
+  left:40vw;
   background-color:black;
   color:white;
-  height:20vh;
-  width:15vw;
+  height:15vh;
+  width:25vw;
   border-radius:50%;
   text-align:center;
  }
@@ -320,11 +320,36 @@ a {
   font-size:30px;
  }
  .circle2{
-  font-size:50px;
+  font-size:45px;
  }
  .circle3{
-  font-size:25px;
+  font-size:20px;
   line-height:1vh;
+ }
+
+ .dogp-circle{
+  position: absolute;
+  top:5vh;
+  left:3vw;
+  background-color:#C98F0B;
+  color:white;
+  height:15vh;
+  width:25vw;
+  border-radius:50%;
+  text-align:center;
+  padding-top:7%;
+ }
+ .catp-circle{
+  position: absolute;
+  top:75vh;
+  left:65vw;
+  background-color:#0D4C6D;
+  color:white;
+  height:15vh;
+  width:25vw;
+  border-radius:50%;
+  text-align:center;
+  padding-top:7%;
  }
 
  .dog-title{
@@ -349,4 +374,20 @@ a {
  }
  .dtitle2{
   font-size:30px;
+ }
+
+
+ #vr-dog{
+  animation-name: dogHeight-sequence;
+  animation-duration: 5s;
+ }
+
+ #vr-cat{
+  animation-name:catHeight-sequence;
+  animation-duration: 5s;
+ }
+
+ #cat-bg{
+  animation-name: catBackground-sequence;
+  animation-duration: 5s;
  }

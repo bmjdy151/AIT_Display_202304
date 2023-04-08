@@ -6,7 +6,7 @@ var logger = require('morgan');
 // const bootstrap = require('bootstrap');
 
 // var indexRouter = require('./routes/index');
-var indexRouter = require('./routes/fjord_2');
+var indexRouter = require('./routes/welcome');
 var usersRouter = require('./routes/users');
 var fjord_1Router = require('./routes/fjord_1');
 var fjord_2Router = require('./routes/fjord_2');
@@ -31,9 +31,24 @@ var D5_4Router = require('./routes/D5_4');
 var Library_1Router = require('./routes/Library_1');
 var Library_2Router = require('./routes/Library_2');
 var Library_3Router = require('./routes/Library_3');
+var Library_4Router = require('./routes/Library_4');
+var Library_5Router = require('./routes/Library_5');
+var Library_6Router = require('./routes/Library_6');
+var Library_7Router = require('./routes/Library_7');
 var testRouter = require('./routes/test');
 var voteRouter = require('./routes/vote');
+var voteResultRouter = require('./routes/vote_result');
+var welcomeRouter = require('./routes/welcome');
 // var test_mapRouter = require('./routes/test_map');
+
+//DB setup
+const mongoose = require('mongoose');
+
+// mongoose.connect('mongodb://fjord:fjord123!@localhost/vote_db',{ useNewUrlParser: true , useUnifiedTopology: true })
+//   .then(()=> console.log('DB conected!'))
+//   .catch(err=> console.log(err));
+
+
 
 var app = express();
 
@@ -74,8 +89,14 @@ app.use('/D5_4', D5_4Router);
 app.use('/Library_1', Library_1Router);
 app.use('/Library_2', Library_2Router);
 app.use('/Library_3', Library_3Router);
+app.use('/Library_4', Library_4Router);
+app.use('/Library_5', Library_5Router);
+app.use('/Library_6', Library_6Router);
+app.use('/Library_7', Library_7Router);
 app.use('/test', testRouter);
 app.use('/vote', voteRouter);
+app.use('/vote_result', voteResultRouter);
+app.use('/welcome', welcomeRouter);
 // app.use('/test_map', test_mapRouter);
 app.use(express.static(path.join(__dirname, "node_modules/bootstrap/dist/")));
 // app.use('/css', express.static(path.join(_dirname, 'node_modules/bootstrap/dist/css')))
