@@ -9,3 +9,5 @@
 
 http://localhost:3000/
 # AIT_Display_202209
+
+*mongodbは別途ローカルでインストールが必要
